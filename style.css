@@ -1,0 +1,282 @@
+/* ===== Variables de color ===== */
+:root {
+  --azul: #0b3d91;
+  --azul-oscuro: #072a66;
+  --amarillo: #ffc400;
+  --verde: #2e9e4f;
+  --rojo: #d6403a;
+  --gris: #f2f4f8;
+  --texto: #1d2433;
+  --blanco: #ffffff;
+}
+
+/* ===== Base ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--texto);
+  line-height: 1.6;
+  background: var(--blanco);
+}
+
+h1, h2, h3 { font-family: "Trebuchet MS", "Segoe UI", sans-serif; line-height: 1.2; }
+
+.contenedor { width: min(1100px, 92%); margin: 0 auto; }
+
+/* ===== Encabezado y menú ===== */
+.encabezado {
+  background: var(--azul);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+}
+
+.barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+
+.logo {
+  color: var(--blanco);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.menu { display: flex; gap: 22px; }
+
+.menu a {
+  color: var(--blanco);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 2px;
+  border-bottom: 3px solid transparent;
+  transition: border-color .2s, color .2s;
+}
+
+.menu a:hover { color: var(--amarillo); border-color: var(--amarillo); }
+
+.btn-menu {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--blanco);
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* ===== Botones ===== */
+.boton {
+  display: inline-block;
+  background: var(--amarillo);
+  color: var(--azul-oscuro);
+  border: none;
+  padding: 12px 26px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .15s, background .2s;
+}
+
+.boton:hover { background: #ffd43b; transform: translateY(-2px); }
+
+.boton-secundario {
+  background: transparent;
+  color: var(--blanco);
+  border: 2px solid var(--blanco);
+  margin-left: 10px;
+}
+
+.boton-secundario:hover { background: rgba(255, 255, 255, .15); }
+
+/* ===== Página principal (hero) ===== */
+.hero {
+  background: linear-gradient(135deg, var(--azul-oscuro), var(--azul));
+  color: var(--blanco);
+  text-align: center;
+  padding: 110px 0;
+}
+
+.hero h1 { font-size: clamp(2rem, 5vw, 3.4rem); margin-bottom: 16px; }
+.hero p { font-size: 1.2rem; margin-bottom: 30px; opacity: .92; }
+
+/* ===== Secciones ===== */
+.seccion { padding: 70px 0; }
+.seccion-gris { background: var(--gris); }
+
+.seccion h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--azul);
+  margin-bottom: 36px;
+}
+
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.tarjeta {
+  background: var(--blanco);
+  padding: 28px;
+  border-radius: 12px;
+  border-top: 5px solid var(--amarillo);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .1);
+  transition: transform .2s;
+}
+
+.tarjeta:hover { transform: translateY(-6px); }
+.tarjeta h3 { color: var(--azul); margin-bottom: 10px; }
+
+/* ===== Tabla de tarifas ===== */
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--blanco);
+  margin-bottom: 26px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .1);
+}
+
+.tabla th { background: var(--azul); color: var(--blanco); padding: 14px; }
+.tabla td { padding: 14px; text-align: center; border-bottom: 1px solid #e3e6ee; }
+.tabla tbody tr:hover { background: #fff8d6; }
+
+.info-extra {
+  margin-top: 20px;
+  background: var(--blanco);
+  padding: 18px 22px;
+  border-left: 5px solid var(--azul);
+  border-radius: 6px;
+}
+
+.oculto { display: none; }
+
+/* ===== Espacios ===== */
+.controles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.controles input {
+  padding: 10px 14px;
+  border: 2px solid #c8cedc;
+  border-radius: 8px;
+  font-size: 1rem;
+  min-width: 220px;
+}
+
+.controles input:focus { outline: none; border-color: var(--azul); }
+
+.filtro {
+  padding: 10px 18px;
+  border: 2px solid var(--azul);
+  background: var(--blanco);
+  color: var(--azul);
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+
+.filtro:hover, .filtro.activo { background: var(--azul); color: var(--blanco); }
+
+.contador { text-align: center; font-weight: 600; margin-bottom: 22px; }
+
+.espacios {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 14px;
+}
+
+.espacio {
+  text-align: center;
+  padding: 22px 8px;
+  border-radius: 10px;
+  color: var(--blanco);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.espacio.libre { background: var(--verde); }
+.espacio.ocupado { background: var(--rojo); }
+.espacio.oculto { display: none; }
+
+/* ===== Formulario ===== */
+.formulario {
+  max-width: 520px;
+  margin: 0 auto;
+  background: var(--blanco);
+  padding: 32px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .12);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formulario label { font-weight: 700; margin-top: 8px; }
+
+.formulario input, .formulario select {
+  padding: 11px 13px;
+  border: 2px solid #c8cedc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.formulario input:focus, .formulario select:focus {
+  outline: none;
+  border-color: var(--azul);
+}
+
+.formulario .boton { margin-top: 18px; }
+
+.formulario .error { border-color: var(--rojo); }
+
+.mensaje { margin-top: 12px; padding: 0; font-weight: 600; text-align: center; }
+.mensaje.ok { color: var(--verde); background: #e7f6ec; padding: 12px; border-radius: 8px; }
+.mensaje.fallo { color: var(--rojo); background: #fdecea; padding: 12px; border-radius: 8px; }
+
+/* ===== Pie de página ===== */
+.pie {
+  background: var(--azul-oscuro);
+  color: var(--blanco);
+  text-align: center;
+  padding: 24px 0;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 720px) {
+  .btn-menu { display: block; }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--azul-oscuro);
+  }
+
+  .menu.abierto { display: flex; }
+  .menu a { padding: 14px 24px; border-bottom: 1px solid rgba(255, 255, 255, .12); }
+
+  .boton-secundario { margin-left: 0; margin-top: 12px; }
+  .hero { padding: 70px 0; }
+}
