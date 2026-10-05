@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ParkAlto - Sistema de Parqueo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Encabezado y menú -->
+  <header class="encabezado">
+    <div class="contenedor barra">
+      <a href="#inicio" class="logo">🅿️ ParkAlto</a>
+      <button id="btn-menu" class="btn-menu" aria-label="Abrir menú">☰</button>
+      <nav id="menu" class="menu">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#tarifas">Tarifas</a>
+        <a href="#espacios">Espacios</a>
+        <a href="#reserva">Reservar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Página principal -->
+    <section id="inicio" class="hero">
+      <div class="contenedor">
+        <h1>Tu auto seguro, tu tiempo libre</h1>
+        <p>Sistema de parqueo con vigilancia las 24 horas en la ciudad de El Alto.</p>
+        <a href="#reserva" class="boton">Reservar un espacio</a>
+        <a href="#espacios" class="boton boton-secundario">Ver espacios</a>
+      </div>
+    </section>
+
+    <!-- Sección 1: Servicios -->
+    <section id="servicios" class="seccion">
+      <div class="contenedor">
+        <h2>Nuestros servicios</h2>
+        <div class="tarjetas">
+          <article class="tarjeta">
+            <h3>🔒 Vigilancia 24/7</h3>
+            <p>Cámaras de seguridad y personal de control todo el día.</p>
+          </article>
+          <article class="tarjeta">
+            <h3>🚗 Autos y motos</h3>
+            <p>Espacios para autos, camionetas y motocicletas.</p>
+          </article>
+          <article class="tarjeta">
+            <h3>🧼 Lavado de autos</h3>
+            <p>Servicio opcional de lavado mientras estacionas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 2: Tarifas -->
+    <section id="tarifas" class="seccion seccion-gris">
+      <div class="contenedor">
+        <h2>Tarifas</h2>
+        <table class="tabla">
+          <thead>
+            <tr><th>Vehículo</th><th>Por hora</th><th>Día completo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Motocicleta</td><td>Bs 3</td><td>Bs 20</td></tr>
+            <tr><td>Auto</td><td>Bs 5</td><td>Bs 35</td></tr>
+            <tr><td>Camioneta</td><td>Bs 8</td><td>Bs 50</td></tr>
+          </tbody>
+        </table>
+        <button id="btn-info" class="boton">Ver más información</button>
+        <div id="info-extra" class="info-extra oculto">
+          <p>Horario: abierto las 24 horas, todos los días. Se aceptan pagos en efectivo y por QR.
+          Pérdida de ticket: Bs 20 adicionales.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 3: Espacios -->
+    <section id="espacios" class="seccion">
+      <div class="contenedor">
+        <h2>Espacios del parqueo</h2>
+        <div class="controles">
+          <input type="text" id="buscador" placeholder="Buscar espacio (ej: A1)">
+          <button class="filtro activo" data-filtro="todos">Todos</button>
+          <button class="filtro" data-filtro="libre">Libres</button>
+          <button class="filtro" data-filtro="ocupado">Ocupados</button>
+        </div>
+        <p id="contador" class="contador"></p>
+        <ul id="lista-espacios" class="espacios">
+          <li class="espacio libre" data-estado="libre">A1</li>
+          <li class="espacio ocupado" data-estado="ocupado">A2</li>
+          <li class="espacio libre" data-estado="libre">A3</li>
+          <li class="espacio libre" data-estado="libre">A4</li>
+          <li class="espacio ocupado" data-estado="ocupado">B1</li>
+          <li class="espacio libre" data-estado="libre">B2</li>
+          <li class="espacio ocupado" data-estado="ocupado">B3</li>
+          <li class="espacio libre" data-estado="libre">B4</li>
+          <li class="espacio libre" data-estado="libre">C1</li>
+          <li class="espacio ocupado" data-estado="ocupado">C2</li>
+          <li class="espacio libre" data-estado="libre">C3</li>
+          <li class="espacio libre" data-estado="libre">C4</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Formulario -->
+    <section id="reserva" class="seccion seccion-gris">
+      <div class="contenedor">
+        <h2>Reservar un espacio</h2>
+        <form id="form-reserva" class="formulario" novalidate>
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" placeholder="Tu nombre">
+
+          <label for="placa">Placa del vehículo</label>
+          <input type="text" id="placa" placeholder="Ej: 1234ABC" maxlength="7">
+
+          <label for="tipo">Tipo de vehículo</label>
+          <select id="tipo">
+            <option value="">Selecciona...</option>
+            <option value="3">Motocicleta</option>
+            <option value="5">Auto</option>
+            <option value="8">Camioneta</option>
+          </select>
+
+          <label for="fecha">Fecha</label>
+          <input type="date" id="fecha">
+
+          <label for="horas">Horas de estadía</label>
+          <input type="number" id="horas" min="1" max="24" value="1">
+
+          <button type="submit" class="boton">Reservar</button>
+          <p id="mensaje" class="mensaje" role="alert"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p>&copy; 2026 ParkAlto - El Alto, Bolivia</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
